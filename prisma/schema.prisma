@@ -25,6 +25,7 @@ model Student {
   password_hash    String
   current_semester Int                  @default(1)
   current_cpi      Decimal              @default(0.00)
+  hall             String?
   is_active        Boolean              @default(false)
   created_at       DateTime             @default(now())
   updated_at       DateTime             @updatedAt
