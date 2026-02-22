@@ -1,0 +1,49 @@
+{
+  "teamName": "team ",
+  "leaderName": "mohit",
+  "branchName": "TEAM__MOHIT_AI_Fix",
+  "failuresDetected": 5,
+  "fixesApplied": 4,
+  "fixes": [
+    {
+      "file": "dist/auth/auth.service.js",
+      "bugType": "SYNTAX",
+      "line": 86,
+      "commitMessage": "[AI-AGENT] Fix syntax error in verifyOtp error message template literal",
+      "status": "fixed",
+      "explanation": "The error message string was truncated and had an unclosed template literal/ternary expression, causing a syntax error."
+    },
+    {
+      "file": "dist/auth/auth.utils.js",
+      "bugType": "LOGIC",
+      "line": 34,
+      "commitMessage": "[AI-AGENT] Fix missing JWT_SECRET initialization from environment",
+      "status": "fixed",
+      "explanation": "The JWT_SECRET was being accessed from process.env but lacked a fallback, which could lead to authentication failures if the environment variable is missing. Added a default for development consistency."
+    },
+    {
+      "file": "dist/controllers/course.controller.js",
+      "bugType": "TYPE_ERROR",
+      "line": 17,
+      "commitMessage": "[AI-AGENT] Fix access to undefined req.user property",
+      "status": "fixed",
+      "explanation": "The code attempts to access req.user.enrollmentNo without checking if req.user exists. In Express/TypeScript, this requires proper type casting or optional chaining when using custom middleware properties."
+    },
+    {
+      "file": "dist/auth/auth.utils.js",
+      "bugType": "SYNTAX",
+      "line": 63,
+      "commitMessage": "[AI-AGENT] Fix unclosed generateOtp function",
+      "status": "fixed",
+      "explanation": "The generateOtp function was missing its closing brace, which breaks the entire utility file."
+    },
+    {
+      "file": "dist/services/schedule.service.js",
+      "bugType": "LOGIC",
+      "line": 50,
+      "commitMessage": "[AI-AGENT] Fix missing checkTimeOverlap and formatTime helper functions",
+      "status": "failed",
+      "explanation": "The file references checkTimeOverlap and formatTime which are not defined in the scope or imported. However, the file content is truncated, so I cannot provide a complete fix without the original logic."
+    }
+  ]
+}
