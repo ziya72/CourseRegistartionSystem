@@ -83,7 +83,14 @@ function hasRequiredRole(userRole, requiredRole) {
         teacher: 2,
         admin: 3,
     };
+function hasRequiredRole(userRole, requiredRole) {
+    const roleHierarchy = {
+        student: 1,
+        teacher: 2,
+        admin: 3,
+    };
     return roleHierarchy[userRole] >= roleHierarchy[requiredRole];
+}
 }
 /**
  * Middleware factory for role-based access control
