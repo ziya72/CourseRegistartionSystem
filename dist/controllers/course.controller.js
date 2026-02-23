@@ -15,7 +15,11 @@ class CourseController {
     static async getAvailableCourses(req, res) {
         try {
             const enrollmentNo = req.user.enrollmentNo;
-            // Get student details
+const enrollmentNo = req.user?.enrollmentNo;
+if (!enrollmentNo) {
+    res.status(401).json({ error: "User enrollment not found in token" });
+    return;
+}
             const student = await prisma.student.findUnique({
                 where: { enrollment_no: enrollmentNo },
                 include: { faculty: true },
