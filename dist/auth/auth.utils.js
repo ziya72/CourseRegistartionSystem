@@ -31,7 +31,7 @@ exports.generateRefreshToken = generateRefreshToken;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
 /* ================= JWT CONFIG ================= */
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET || "dev_secret_fallback";
 const ACCESS_TOKEN_EXPIRY = "15m";
 const REFRESH_TOKEN_EXPIRY = "7d";
 /* ================= OTP CONFIG ================= */
@@ -94,7 +94,7 @@ function formatTimeRemaining(expiresAt) {
 }
 function logOtpToConsole(email, otp, expiresAt) {
     console.log("\n" + "=".repeat(50));
-    console.log("🔐 OTP GENERATED");
+    console.log("ð OTP GENERATED");
     console.log("=".repeat(50));
     console.log(`Email:      ${email}`);
     console.log(`OTP:        ${otp}`);
@@ -130,7 +130,7 @@ function getResetTokenExpiryTime() {
 }
 function logResetTokenToConsole(email, token, expiresAt) {
     console.log("\n" + "=".repeat(50));
-    console.log("🔑 PASSWORD RESET TOKEN GENERATED");
+    console.log("ð PASSWORD RESET TOKEN GENERATED");
     console.log("=".repeat(50));
     console.log(`Email:      ${email}`);
     console.log(`Token:      ${token}`);
