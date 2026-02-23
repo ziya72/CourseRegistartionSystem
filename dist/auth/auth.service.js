@@ -12,7 +12,7 @@ const prisma = new client_1.PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET || "dev_secret";
 class AuthService {
     static async requestOtp(email) {
-        console.log("🔍 DEBUG: requestOtp called with email:", email);
+        console.log("ð DEBUG: requestOtp called with email:", email);
         if (!(0, auth_utils_1.isInstitutionalEmail)(email)) {
             throw new Error("Invalid institutional email");
         }
@@ -83,7 +83,7 @@ class AuthService {
         if (student.password_hash) {
             throw new Error("Account already activated");
         }
-        const hashedPassword = await bcrypt_1.default.hash(password, 10);
+throw new Error(`Invalid OTP. ${remaining} attempt${remaining !== 1 ? 's' : ''} remaining.`);
         await prisma.student.update({
             where: { enrollment_no: enrollmentNo },
             data: {
